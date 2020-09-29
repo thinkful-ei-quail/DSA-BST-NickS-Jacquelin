@@ -9,7 +9,7 @@ function main() {
   BST.insert(9, 9);
   BST.insert(2, 2);
   BST.insert(5, 5);
-  BST.insert(7, 7);
+//   BST.insert(7, 7);
   // console.log(BST)
   // console.log(BST.find(9))
 
@@ -72,16 +72,20 @@ BST = main();
 // console.log(thirdLargest(BST))
 
 function nthNode(node, n) {
-    if(node) {
-        nthNode(node.right, n)
-        n.counter--
-        console.log(node.value)
-        nthNode(node.left, n)
-        
-        if(n.counter === 0) {
-            console.log('value', node.value)
-    }
-    }
-    console.log('counter', n)
+  if (n.result) {
+    return;
+  }
+  if (node.right) {
+    nthNode(node.right, n);
+  }
+  n.counter--;
+  if (n.counter === 0) {
+    n.result = node.value;
+  }
+  if (node.left) {
+    nthNode(node.left, n);
+  }
 }
-nthNode(BST, {counter:3})
+let thing = { counter: 1, result: null }
+nthNode(BST, thing);
+console.log(thing)
