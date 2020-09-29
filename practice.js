@@ -32,21 +32,37 @@ return BST
 }
 BST = main()
 
-function tree(t){
-    if(!t){
-        return 0;
-    }
-    return tree(t.left) + t.value + tree(t.right)
-}
-console.log(tree(BST))
+// function tree(t){
+//     if(!t){
+//         return 0;
+//     }
+//     return tree(t.left) + t.value + tree(t.right)
+// }
+// console.log(tree(BST))
 
-function height(t) {
-    if(!t) {
-        return 0;
-    }
-    let leftHeight = height(t.left);
-    let rightHeight = height(t.right);
-    return Math.max(leftHeight, rightHeight) + 1;
-}
+// function height(t) {
+//     if(!t) {
+//         return 0;
+//     }
+//     let leftHeight = height(t.left);
+//     let rightHeight = height(t.right);
+//     return Math.max(leftHeight, rightHeight) + 1;
+// }
+// console.log(height(BST))
 
-console.log(height(BST))
+function isBST(node, min = null, max = null) {
+    if(!node) 
+        return true;
+    if(max !== null && node.data >=max) 
+        return false;
+    if(min !== null && node.data <= min) 
+        return false;
+    const leftSide = isBST(node.left, min, node.data);
+    console.log(leftSide)
+    const rightSide =  isBST(node.right, node.value, max);
+    console.log(rightSide)
+
+    return leftSide && rightSide;
+}
+console.log(isBST(BST))
+
