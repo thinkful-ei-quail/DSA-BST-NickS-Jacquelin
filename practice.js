@@ -72,14 +72,16 @@ BST = main();
 // console.log(thirdLargest(BST))
 
 function nthNode(node, n) {
-    counter = 0;
-    value = 0
     if(node) {
-        node.right && nthNode(node.right)
+        nthNode(node.right, n)
+        n.counter--
         console.log(node.value)
-        node.left && nthNode(node.left)
+        nthNode(node.left, n)
+        
+        if(n.counter === 0) {
+            console.log('value', node.value)
     }
-    counter++
-    console.log('counter', counter)
+    }
+    console.log('counter', n)
 }
-nthNode(BST)
+nthNode(BST, {counter:3})
