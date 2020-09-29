@@ -1,36 +1,36 @@
-const BinarySearchTree = require('./BinarySearchTree')
+const BinarySearchTree = require("./BinarySearchTree");
 
 function main() {
-    const BST = new BinarySearchTree()
-    BST.insert(3,3)
-    BST.insert(1,1)
-    BST.insert(4,4)
-    BST.insert(6,6)
-    BST.insert(9,9)
-    BST.insert(2,2)
-    BST.insert(5,5)
-    BST.insert(7,7)
-    // console.log(BST)
-    // console.log(BST.find(9))
+  const BST = new BinarySearchTree();
+  BST.insert(3, 3);
+  BST.insert(1, 1);
+  BST.insert(4, 4);
+  BST.insert(6, 6);
+  BST.insert(9, 9);
+  BST.insert(2, 2);
+  BST.insert(5, 5);
+  BST.insert(7, 7);
+  // console.log(BST)
+  // console.log(BST.find(9))
 
-    // BST.insert('E')
-    // BST.insert('A')
-    // BST.insert('S')
-    // BST.insert('Y')
-    // BST.insert('Q')
-    // BST.insert('U')
-    // BST.insert('E')
-    // BST.insert('S')
-    // BST.insert('T')
-    // BST.insert('I')
-    // BST.insert('O')
-    // BST.insert('N')
-    // while(1){
-    // console.log(BST)
-// }
-return BST
+  // BST.insert('E')
+  // BST.insert('A')
+  // BST.insert('S')
+  // BST.insert('Y')
+  // BST.insert('Q')
+  // BST.insert('U')
+  // BST.insert('E')
+  // BST.insert('S')
+  // BST.insert('T')
+  // BST.insert('I')
+  // BST.insert('O')
+  // BST.insert('N')
+  // while(1){
+  // console.log(BST)
+  // }
+  return BST;
 }
-BST = main()
+BST = main();
 
 // function tree(t){
 //     if(!t){
@@ -50,19 +50,36 @@ BST = main()
 // }
 // console.log(height(BST))
 
-function isBST(node, min = null, max = null) {
-    if(!node) 
-        return true;
-    if(max !== null && node.data >=max) 
-        return false;
-    if(min !== null && node.data <= min) 
-        return false;
-    const leftSide = isBST(node.left, min, node.data);
-    console.log(leftSide)
-    const rightSide =  isBST(node.right, node.value, max);
-    console.log(rightSide)
+// function isBST(node, min = null, max = null) {
+//     if(!node)
+//         return true;
+//     if(max !== null && node.data >=max)
+//         return false;
+//     if(min !== null && node.data <= min)
+//         return false;
+//     const leftSide = isBST(node.left, min, node.data);
+//     console.log('left side', leftSide)
+//     const rightSide =  isBST(node.right, node.value, max);
+//     console.log('right side', rightSide)
 
-    return leftSide && rightSide;
+//     return leftSide && rightSide;
+// }
+// console.log(isBST(BST))
+
+// function thirdLargest(tree) {
+
+// }
+// console.log(thirdLargest(BST))
+
+function nthNode(node, n) {
+    counter = 0;
+    value = 0
+    if(node) {
+        node.right && nthNode(node.right)
+        console.log(node.value)
+        node.left && nthNode(node.left)
+    }
+    counter++
+    console.log('counter', counter)
 }
-console.log(isBST(BST))
-
+nthNode(BST)
