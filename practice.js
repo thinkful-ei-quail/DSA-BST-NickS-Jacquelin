@@ -39,3 +39,14 @@ function tree(t){
     return tree(t.left) + t.value + tree(t.right)
 }
 console.log(tree(BST))
+
+function height(t) {
+    if(!t) {
+        return 0;
+    }
+    let leftHeight = height(t.left);
+    let rightHeight = height(t.right);
+    return Math.max(leftHeight, rightHeight) + 1;
+}
+
+console.log(height(BST))
